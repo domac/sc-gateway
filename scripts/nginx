@@ -1,0 +1,13 @@
+/data/logs/sc_gateway/*-*.log  {
+daily
+rotate 7
+missingok
+dateext
+compress
+delaycompress
+notifempty
+sharedscripts
+postrotate
+    [ -e /usr/local/openresty/nginx/logs/nginx.pid ] && kill -USR1 `cat /usr/local/openresty/nginx/logs/nginx.pid`
+endscript
+}
