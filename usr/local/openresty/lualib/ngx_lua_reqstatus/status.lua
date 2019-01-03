@@ -1,6 +1,3 @@
--- zheng-ji
---
-
 local uri_args = ngx.req.get_uri_args()
 svrname_key = uri_args["domain"]
 if not svrname_key then

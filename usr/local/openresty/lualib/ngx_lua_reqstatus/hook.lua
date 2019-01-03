@@ -1,5 +1,3 @@
--- zheng-ji
---
 local reqmonit = require("ngx_lua_reqstatus.reqmonit")
 local request_time = ngx.now() - ngx.req.start_time()
 svrname_key = ngx.var.server_name
