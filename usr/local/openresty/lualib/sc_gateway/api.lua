@@ -11,11 +11,13 @@ local mids = ngx.shared.mids
 
 local keys = mids:get_keys(100000)
 
-local ret = ""
+local infodict = {}
 for i = 1, #keys do
     local key = keys[i]
     local value = mids:get(key)
-    ret = ret .. "Client-Mid=" .. key .. ",Client-Version=" .. value .. "\n"
+    local ret = "Client-Mid=" .. key .. ",Client-Version=" .. value
+    infodict[i] = ret
 end
+local ret = table.concat(infodict, "\n")
 ngx.print(ret)
 ngx.exit(200)
